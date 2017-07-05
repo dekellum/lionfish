@@ -1,0 +1,25 @@
+[Unit]
+Description=Guppy (Fishwife) HTTP Server
+After=network.target
+Requires=guppy.socket
+
+[Service]
+Type=simple
+# User=david
+WorkingDirectory=/home/david/src/guppy
+Environment=RACK_ENV=production
+ExecStart=/home/david/src/guppy/bin/guppy
+
+# Define standard FDs for inetd-style inheriting
+# Logging still comes from stderr to the journal
+StandardInput=socket
+StandardOutput=socket
+StandardError=journal
+
+# JVM SIGTERM exit code
+SuccessExitStatus=143
+
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

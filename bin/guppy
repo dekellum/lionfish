@@ -1,0 +1,41 @@
+#!/usr/local/bin/jruby
+
+require "pathname"
+ROOT_DIR = File.expand_path( "../../", Pathname.new(__FILE__).realpath )
+
+ENV["BUNDLE_GEMFILE"] = "#{ROOT_DIR}/Gemfile"
+require "rubygems"
+require "bundler/setup"
+
+require 'rjack-logback'
+RJack::Logback.config_console( stderr: true, thread: true )
+
+require 'fishwife'
+
+# Specialized server for journal friendly request logging
+class GuppyServer < Fishwife::HttpServer
+  def initialize( opts = {} )
+    super( opts.merge( request_log_file: :custom ) )
+  end
+
+  def create_request_log(f)
+    Java::org.eclipse.jetty.server.Slf4jRequestLog.new.tap do |l|
+      l.log_date_format = "" #disable redundant timestamp
+      l.prefer_proxied_for_address = true
+      # For User-Agent: l.extended = true
+      l.log_latency = true
+    end
+  end
+end
+
+# Server with connections config: inherit_channel=true for inetd or
+# systemd socket activation
+server = GuppyServer.new(
+  connections: [ 'tcp://127.0.0.1:9237?inherit_channel=true' ] )
+
+# Here we load an external config.ru with full syntax support
+# Alternatively could just directly start with GuppyApp.
+rack_app, _ = Rack::Builder.parse_file( "#{ROOT_DIR}/config.ru" )
+
+server.start( rack_app )
+server.join
