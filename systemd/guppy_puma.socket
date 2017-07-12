@@ -1,8 +1,8 @@
 [Unit]
-Description=Guppy (Fishwife) HTTP Server Sockets
+Description=Guppy (Puma) HTTP Server Sockets
 
 [Socket]
-ListenStream=0.0.0.0:9237
+ListenStream=0.0.0.0:9238
 
 NoDelay=true
 ReusePort=true

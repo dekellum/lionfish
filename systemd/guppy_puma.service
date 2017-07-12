@@ -1,7 +1,7 @@
 [Unit]
-Description=Guppy (Fishwife) HTTP Server
+Description=Guppy (Puma) HTTP Server
 After=network.target
-Requires=guppy.socket
+Requires=guppy_puma.socket
 
 [Service]
 Type=simple
@@ -11,18 +11,19 @@ Type=simple
 
 # Change this and subsequent paths appropriately for your environment
 # /var/local/guppy would be a good choice of production path
-WorkingDirectory=/home/david/src/guppy
+WorkingDirectory=/home/david/src/guppy_puma
 Environment=RACK_ENV=production
-ExecStart=/home/david/src/guppy/bin/guppy
+Environment=PUMA_DEBUG=1
+ExecStart=/home/david/src/guppy_puma/sbin/puma -C puma.rb
 
 # Define standard FDs for inetd-style inheriting
 # Logging still comes through STDERR to the journal
-StandardInput=socket
-StandardOutput=socket
-StandardError=journal
+# StandardInput=socket
+# StandardOutput=socket
+# StandardError=journal
 
-# JVM SIGTERM exit code
-SuccessExitStatus=143
+# "Correct" Term exit
+# SuccessExitStatus=143
 
 Restart=always
 

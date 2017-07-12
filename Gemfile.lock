@@ -1,17 +1,11 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    fishwife (1.10.0-java)
-      rack (>= 1.6.4, < 2.1)
-      rjack-jetty (>= 9.2.11, < 9.5)
-      rjack-slf4j (~> 1.7.2)
+    puma (3.3.0)
+    puma (3.3.0-java)
     rack (1.6.8)
     rack-protection (1.5.3)
       rack
-    rjack-jetty (9.4.6.0-java)
-    rjack-logback (1.9.0-java)
-      rjack-slf4j (~> 1.7.16)
-    rjack-slf4j (1.7.25.0-java)
     sinatra (1.4.8)
       rack (~> 1.5)
       rack-protection (~> 1.4)
@@ -20,11 +14,12 @@ GEM
 
 PLATFORMS
   java
+  ruby
   universal-java-1.8
+  x86_64-linux
 
 DEPENDENCIES
-  fishwife (~> 1.10.0)
-  rjack-logback (~> 1.9.0)
+  puma (~> 3.3.0)
   sinatra (~> 1.4.7)
 
 BUNDLED WITH
