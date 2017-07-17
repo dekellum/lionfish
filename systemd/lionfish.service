@@ -1,7 +1,7 @@
 [Unit]
-Description=Guppy (Puma) HTTP Server
+Description=Lionfish (Puma) HTTP Server
 After=network.target
-Requires=guppy_puma.socket
+Requires=lionfish.socket
 
 [Service]
 Type=simple
@@ -10,11 +10,11 @@ Type=simple
 # User=david
 
 # Change this and subsequent paths appropriately for your environment
-# /var/local/guppy would be a good choice of production path
-WorkingDirectory=/home/david/src/guppy_puma
+# /var/local/lionfish might be a good choice of production path
+WorkingDirectory=/home/david/src/lionfish
 Environment=RACK_ENV=production
 Environment=PUMA_DEBUG=1
-ExecStart=/home/david/src/guppy_puma/sbin/puma -C puma.rb
+ExecStart=/home/david/src/lionfish/sbin/puma -C puma.rb
 
 # Define standard FDs for inetd-style inheriting
 # Logging still comes through STDERR to the journal
