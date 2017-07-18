@@ -1,5 +1,5 @@
 # -*- ruby -*-
 
-require_relative 'guppy_app'
+require_relative 'app'
 
-run GuppyApp
+run App

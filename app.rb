@@ -1,6 +1,6 @@
 require 'sinatra/base'
 
-class GuppyApp < Sinatra::Base
+class App < Sinatra::Base
 
   configure do
     enable :logging
