@@ -1,7 +1,6 @@
 [Unit]
 Description=Lionfish (Puma) HTTP Server
 After=network.target
-Requires=lionfish.socket
 
 [Service]
 Type=simple
