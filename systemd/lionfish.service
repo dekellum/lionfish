@@ -16,12 +16,6 @@ Environment=RACK_ENV=production
 Environment=PUMA_DEBUG=1
 ExecStart=/home/david/src/lionfish/sbin/puma -C puma.rb
 
-# Define standard FDs for inetd-style inheriting
-# Logging still comes through STDERR to the journal
-# StandardInput=socket
-# StandardOutput=socket
-# StandardError=journal
-
 # "Correct" Term exit
 # SuccessExitStatus=143
 
