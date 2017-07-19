@@ -16,9 +16,6 @@ Environment=RACK_ENV=production
 Environment=PUMA_DEBUG=1
 ExecStart=/home/david/src/lionfish/sbin/puma -C puma.rb
 
-# "Correct" Term exit
-# SuccessExitStatus=143
-
 Restart=always
 
 # Workaround for https://github.com/puma/puma/issues/1344
