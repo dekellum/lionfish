@@ -13,8 +13,13 @@ end
 [ :status, :start, :stop, :disable ].each do |t|
   desc "systemctl #{t} socket/service"
   task t do
+    ignore = if [ :status, :stop ].include?( t )
+               "|| true"
+             else
+               ""
+             end
     sh <<-SH
-      systemctl --user #{t} lionfish.{socket,service}
+      systemctl --user #{t} lionfish.{socket,service} #{ignore}
     SH
   end
 end
