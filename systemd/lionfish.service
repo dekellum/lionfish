@@ -18,8 +18,5 @@ ExecStart=/home/david/src/lionfish/sbin/puma -C puma.rb
 
 Restart=always
 
-# Workaround for https://github.com/puma/puma/issues/1344
-Environment=RUBYOPT="-v"
-
 [Install]
 WantedBy=multi-user.target
