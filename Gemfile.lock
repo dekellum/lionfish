@@ -1,13 +1,9 @@
-GIT
-  remote: git://github.com/puma/puma.git
-  revision: 39dc3dfe1b7e6096c7feb466d2ac47b435b93e98
-  specs:
-    puma (3.10.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
     mustermann (1.0.0)
+    puma (3.10.0)
+    puma (3.10.0-java)
     rack (2.0.3)
     rack-protection (2.0.0)
       rack
@@ -25,7 +21,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  puma (~> 3.9)!
+  puma (~> 3.10)
   sinatra (~> 2.0.0)
 
 BUNDLED WITH
