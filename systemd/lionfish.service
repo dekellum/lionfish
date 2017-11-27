@@ -14,7 +14,7 @@ Type=simple
 WorkingDirectory=/home/david/src/lionfish
 Environment=RACK_ENV=production
 Environment=PUMA_DEBUG=1
-ExecStart=/home/david/bin/bundle exec puma -C puma.rb
+ExecStart=/home/david/bin/bundle exec --keep-file-descriptors puma -C puma.rb
 
 Restart=always
 
