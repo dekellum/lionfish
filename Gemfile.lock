@@ -1,18 +1,18 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    mustermann (1.0.1)
-    puma (3.11.0)
-    puma (3.11.0-java)
-    rack (2.0.3)
-    rack-protection (2.0.0)
+    mustermann (1.0.3)
+    puma (3.12.1)
+    puma (3.12.1-java)
+    rack (2.0.7)
+    rack-protection (2.0.5)
       rack
-    sinatra (2.0.0)
+    sinatra (2.0.5)
       mustermann (~> 1.0)
       rack (~> 2.0)
-      rack-protection (= 2.0.0)
+      rack-protection (= 2.0.5)
       tilt (~> 2.0)
-    tilt (2.0.8)
+    tilt (2.0.9)
 
 PLATFORMS
   java
@@ -25,4 +25,4 @@ DEPENDENCIES
   sinatra (~> 2.0.0)
 
 BUNDLED WITH
-   1.15.1
+   1.17.3
